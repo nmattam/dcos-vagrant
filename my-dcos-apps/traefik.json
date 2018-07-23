@@ -1,0 +1,33 @@
+{
+  "service": {
+  "name": "traefik",
+  "cpus": 1.0,
+  "mem": 128,
+  "instances": 1,
+  "user": "root",
+  "role": "slave_public",
+  "minimumHealthCapacity": 0,
+  "maximumOverCapacity": 0.2
+},
+"traefik": {
+  "http-port": 80,
+  "https-enable": true,
+  "https-port": 443,
+  "admin-enable": true,
+  "admin-port": 8080,
+  "config-file": "/etc/traefik/rules.toml",
+  "watch-config-file": true
+},
+"marathon": {
+  "enable": true,
+  "endpoint": "http://marathon.mesos:8080",
+  "watch": true,
+  "domain": "marathon.localhost",
+  "marathonlb-compatibility": false,
+  "expose": false,
+  "groups-as-subdomains": false,
+  "dialer-timeout": "60s",
+  "keep-alive": "10s",
+  "force-task-hostname": false
+}
+}

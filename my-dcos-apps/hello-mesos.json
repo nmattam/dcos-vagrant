@@ -1,0 +1,28 @@
+{
+  "id": "hello-mesos",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "mesosphere/simple-docker",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "hostPort": 0, "containerPort": 80, "servicePort": 10006 }
+      ]
+    }
+  },
+  "instances": 3,
+  "cpus": 0.25,
+  "mem": 50,
+  "healthChecks": [{
+      "protocol": "HTTP",
+      "path": "/",
+      "portIndex": 0,
+      "timeoutSeconds": 2,
+      "gracePeriodSeconds": 15,
+      "intervalSeconds": 3,
+      "maxConsecutiveFailures": 2
+  }],
+  "labels":{
+    "traefik.enable": "true"
+  }
+}
