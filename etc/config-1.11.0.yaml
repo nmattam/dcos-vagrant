@@ -14,3 +14,4 @@ ssh_user: vagrant
 agent_list: []
 platform: vagrant-virtualbox
 check_time: false
+oauth_enabled: 'false'

@@ -23,6 +23,5 @@
       "maxConsecutiveFailures": 2
   }],
   "labels":{
-    "traefik.enable": "true"
   }
 }
