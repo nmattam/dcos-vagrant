@@ -16,21 +16,21 @@ then
 fi
 
 open http://m1.dcos/\#/services/overview/
-# Should have landed traefik as an app, but...
-dcos package install traefik --yes
 
-sleep 30
 dcos marathon app add my-dcos-apps/hello-mesos.json
 dcos marathon app add my-dcos-apps/hello-nmattam.json
+sleep 15
+
+dcos marathon app add my-dcos-apps/traefik.json
+
+sleep 45
 
 # Open traefik dashboard
 open http://192.168.65.60:8080/dashboard/status
 
-sleep 15
-
 # Generate some traffic
 # 200
-curl -s -H Host:hello-mesos.marathon.localhost >/dev/null http://192.168.65.60
+curl -s -H Host:hello.marathon.localhost >/dev/null http://192.168.65.60
 curl -s -H Host:hello-nmattam.marathon.localhost >/dev/null http://192.168.65.60
 # 404
 curl -s -H Host:hello-nmattam.marathon.localhost >/dev/null http://192.168.65.60/404

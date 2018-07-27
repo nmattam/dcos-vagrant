@@ -23,6 +23,6 @@
       "maxConsecutiveFailures": 2
   }],
   "labels":{
-    "traefik.enable": "true"
+    "HAPROXY_0_VHOST": "hello.marathon.localhost"
   }
 }
